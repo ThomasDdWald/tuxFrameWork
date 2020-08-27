@@ -1,0 +1,12 @@
+<div class="container" #container (scroll)="scroll($event)" (touchstart)="touchstart($event)"
+  (touchend)="touchend($event)" (mouseup)="touchend($event)"
+  (window:resize)="resize()">
+  <div class="scrolling-container"
+    [ngStyle]="{'paddingLeft': externalMargin + 'px', 'paddingRight': externalMargin + 'px'}">
+    <tux-wheel-number *ngFor="let number of options; let i=index" (click)="select(i)" [number]="number">
+    </tux-wheel-number>
+  </div>
+</div>
+<div class="bottom-line"></div>
+<div class="bottom-line-selection" [ngStyle]="{'width': ELEMENT_WIDTH + 'px'}"></div>
+<div class="label">{{ label }}</div>
